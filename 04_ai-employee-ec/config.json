@@ -1,0 +1,29 @@
+{
+  "shop_name": "サンプル雑貨店(架空)",
+  "order_check": {
+    "high_amount_first_order": 50000,
+    "bulk_qty": 5,
+    "repeat_refunds": 2,
+    "same_address_window_hours": 24,
+    "suspicious_address_words": ["私書箱", "転送", "局留め"],
+    "disposable_email_domains": ["mailinator.com", "tempmail.example", "10minutemail.com"],
+    "points": {
+      "high_amount_first_order": 2,
+      "billing_ship_mismatch": 1,
+      "same_address_other_names": 3,
+      "bulk_qty": 1,
+      "repeat_refunds": 2,
+      "suspicious_address": 2,
+      "disposable_email": 1
+    },
+    "review_threshold": 3,
+    "caution_threshold": 1
+  },
+  "refund_policy": {
+    "days_from_delivery": 8,
+    "unopened_only": true
+  },
+  "inventory": {
+    "warn_days_of_stock": 7
+  }
+}

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><title>EC運営 AI社員デモ</title>
+<style>
+@page { size: A4; margin: 11mm 13mm; }
+body { font-family: "Yu Gothic UI", "Meiryo", sans-serif; color: #1e2749; font-size: 10pt; line-height: 1.5; }
+h1 { font-size: 18pt; margin: 0 0 2mm; } .sub { color: #555; margin-bottom: 3mm; }
+h2 { font-size: 12.5pt; border-left: 5px solid #e8b94b; padding-left: 3mm; margin: 4mm 0 1.5mm; }
+table { border-collapse: collapse; width: 100%; font-size: 9.5pt; }
+th, td { border: 1px solid #ccd; padding: 1.1mm 2mm; text-align: left; vertical-align: top; }
+th { background: #1e2749; color: #fff; } .rv { color: #b42318; font-weight: bold; }
+.box { background: #f6f4ec; border-radius: 3mm; padding: 3mm 4mm; } .small { font-size: 8.5pt; color: #666; }
+</style></head><body>
+<h1>EC運営の「AI社員」デモ</h1>
+<div class="sub">ひとりAI商会|データはすべて架空(店名・お客様・住所はダミー)|2026-10-18 分の実行結果</div>
+
+<div class="box"><b>設計の考え方:</b>AIは「決めない」。下書きと判定の理由までを作り、<b>最後の判断と送信は人</b>が行います。
+ルールで決められる部分(点数・返品規定・在庫日数)はプログラムで確実に処理し、文章が必要な部分(返信案・要約)をAIが担当します。</div>
+
+<h2>AI社員の1日</h2>
+<table><tr><th style="width:16%">時刻</th><th style="width:22%">仕事</th><th>中身</th><th style="width:28%">人に回すもの</th></tr>
+<tr><td>8:30</td><td>注文チェック</td><td>前日の注文に点数をつけ、不正の疑いを理由つきで示す</td><td>3点以上の注文</td></tr>
+<tr><td>8:30</td><td>日次レポート</td><td>売上・商品別売上・在庫が何日もつか</td><td>発注の判断</td></tr>
+<tr><td>9:00 / 13:00 / 18:00</td><td>問い合わせの返信案</td><td>種類を分け、返品は規定判定をしてから返信案を書く</td><td>規定外の返品・値引き・配送先変更</td></tr></table>
+
+<h2>結果1:注文チェック(15件 → 4件を人の確認へ)</h2>
+<table><tr><th style="width:12%">注文</th><th style="width:9%">点数</th><th>理由</th></tr>
+<tr><td>A1004</td><td class="rv">6</td><td>初めての注文で高額(58,000円) / 請求先と配送先が違う / 配送先に「転送」 / 使い捨てメール</td></tr>
+<tr><td>A1009</td><td class="rv">5</td><td>同じ配送先に別名義の注文(A1010) / 初めての注文で高額</td></tr>
+<tr><td>A1010</td><td class="rv">5</td><td>同じ配送先に別名義の注文(A1009) / 初めての注文で高額</td></tr>
+<tr><td>A1015</td><td class="rv">3</td><td>同じ商品を6個 / 配送先に「私書箱」</td></tr>
+<tr><td>A1007</td><td>2</td><td>過去の返金が2回(注意のみ)</td></tr></table>
+
+<h2>結果2:問い合わせ6件の返信案</h2>
+<table><tr><th style="width:9%">ID</th><th style="width:18%">種類</th><th style="width:16%">人の確認</th><th>理由</th></tr>
+<tr><td>Q01</td><td>配送</td><td>不要</td><td>出荷予定の案内のみ(お届け日は確約しない)</td></tr>
+<tr><td>Q02</td><td>返品</td><td>不要</td><td>返品判定「規定内」(お届けから4日・未開封)</td></tr>
+<tr><td>Q03</td><td>不良品・返金</td><td class="rv">必要</td><td>開封済み。初期不良の可能性があり、交換か返金かは人が判断</td></tr>
+<tr><td>Q04</td><td>法人・大口</td><td class="rv">必要</td><td>値引き率・名入れの可否は店のルールにない</td></tr>
+<tr><td>Q05</td><td>注文の変更</td><td class="rv">必要</td><td>出荷前かを人が確認してから回答</td></tr>
+<tr><td>Q06</td><td>返品</td><td class="rv">必要</td><td>未配達の記録で判定できない。過去の返金2回</td></tr></table>
+
+<h2>結果3:日次レポート(要点)</h2>
+<p>売上 252,800円(15件)/人の確認待ち 4件/在庫が1日分前後:ソイキャンドル(約0.8日)・真鍮ランプ(約1.0日)→ 発注を検討</p>
+
+<h2>品質と導入</h2>
+<p>自動テスト11件(判定の基準・住所の表記ゆれ・返品の期限・在庫計算)/判定の基準は設定ファイルだけで変更可能/
+サーバー・GitHubはお客様名義のものに招待を受けて作業/最初の2週間の結果を見て、何点で人に回すかを一緒に調整します。</p>
+<p class="small">制作:ひとりAI商会(設計・開発・テストはAI(Claude)、確認は人間のオーナー)</p>
+</body></html>
