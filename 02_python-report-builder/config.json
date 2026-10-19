@@ -1,0 +1,19 @@
+{
+  "_説明": "列名のゆれを吸収する設定です。左が標準の項目名、右がファイルごとに出てくる列名の候補です。",
+  "columns": {
+    "date": ["日付", "注文日", "売上日", "受注日", "Date", "order_date"],
+    "channel": ["店舗", "チャネル", "販売チャネル", "モール", "store"],
+    "product": ["商品名", "品名", "商品", "item", "product_name"],
+    "quantity": ["数量", "個数", "qty", "quantity"],
+    "unit_price": ["単価", "販売単価", "price", "unit_price"],
+    "amount": ["金額", "売上金額", "小計", "合計", "amount"]
+  },
+  "channel_from_filename": {
+    "_説明": "ファイルに店舗・チャネル列がないとき、ファイル名に含まれる語で決めます。",
+    "rakuten": "楽天市場",
+    "amazon": "Amazon",
+    "store": "実店舗",
+    "shopify": "自社EC"
+  },
+  "top_n_products": 10
+}
